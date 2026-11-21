@@ -1,0 +1,146 @@
+// The three floors of the Meridian Archive, each hand-laid: walls and cover (which block
+// movement and sight), plants (which block sight only, so you can slip through them), lamps
+// (pools of light where guards spot you faster), sealed files to collect, guard patrols,
+// cameras, your start and the exit. Everything lives inside the 1280x720 field.
+export const LEVELS = [
+  {
+    name: 'Floor 1 — Reading Room',
+    brief: 'Two guards walk the long room. Learn their patrol, slip between the shelves, take all three files, then reach the green door.',
+    par: 90,
+    walls: [
+      { x: 0, y: 0, w: 1280, h: 24 },
+      { x: 0, y: 696, w: 1280, h: 24 },
+      { x: 0, y: 0, w: 24, h: 720 },
+      { x: 1256, y: 0, w: 24, h: 320 },
+      { x: 1256, y: 384, w: 24, h: 336 },
+    ],
+    cover: [
+      { x: 300, y: 140, w: 260, h: 44, kind: 'shelf' },
+      { x: 300, y: 536, w: 260, h: 44, kind: 'shelf' },
+      { x: 720, y: 140, w: 260, h: 44, kind: 'shelf' },
+      { x: 720, y: 536, w: 260, h: 44, kind: 'shelf' },
+      { x: 610, y: 328, w: 60, h: 60, kind: 'crate' },
+      { x: 170, y: 328, w: 54, h: 54, kind: 'crate' },
+    ],
+    plants: [
+      { x: 170, y: 140, r: 26 },
+      { x: 1110, y: 580, r: 26 },
+      { x: 640, y: 110, r: 24 },
+    ],
+    lamps: [
+      { x: 430, y: 340, r: 150 },
+      { x: 850, y: 340, r: 150 },
+    ],
+    files: [
+      { x: 340, y: 104 },
+      { x: 940, y: 616 },
+      { x: 1110, y: 110 },
+    ],
+    guards: [
+      { waypoints: [[250, 340], [560, 340]] },
+      { waypoints: [[720, 340], [1110, 340]] },
+    ],
+    cameras: [],
+    player: { x: 80, y: 640 },
+    exit: { x: 1256, y: 320, w: 24, h: 64 },
+  },
+  {
+    name: 'Floor 2 — Gallery',
+    brief: 'A camera watches the hall from above and three guards cross it. The plinths are cover; the plants hide you but not your footsteps.',
+    par: 120,
+    walls: [
+      { x: 0, y: 0, w: 1280, h: 24 },
+      { x: 0, y: 696, w: 1280, h: 24 },
+      { x: 0, y: 0, w: 24, h: 720 },
+      { x: 1256, y: 0, w: 24, h: 100 },
+      { x: 1256, y: 164, w: 24, h: 556 },
+    ],
+    cover: [
+      { x: 300, y: 110, w: 44, h: 260, kind: 'shelf' },
+      { x: 300, y: 430, w: 44, h: 180, kind: 'shelf' },
+      { x: 700, y: 110, w: 44, h: 260, kind: 'shelf' },
+      { x: 940, y: 430, w: 44, h: 180, kind: 'shelf' },
+      { x: 520, y: 300, w: 56, h: 56, kind: 'crate' },
+      { x: 880, y: 300, w: 56, h: 56, kind: 'crate' },
+      { x: 120, y: 540, w: 54, h: 54, kind: 'crate' },
+      { x: 1120, y: 120, w: 54, h: 54, kind: 'crate' },
+    ],
+    plants: [
+      { x: 180, y: 120, r: 24 },
+      { x: 640, y: 600, r: 26 },
+      { x: 1100, y: 420, r: 24 },
+      { x: 520, y: 120, r: 22 },
+    ],
+    lamps: [
+      { x: 430, y: 240, r: 140 },
+      { x: 830, y: 480, r: 140 },
+      { x: 1100, y: 240, r: 120 },
+    ],
+    files: [
+      { x: 140, y: 110 },
+      { x: 1010, y: 620 },
+      { x: 640, y: 360 },
+    ],
+    guards: [
+      { waypoints: [[150, 400], [560, 400]] },
+      { waypoints: [[860, 120], [860, 600]] },
+      { waypoints: [[640, 120], [640, 560]] },
+    ],
+    cameras: [
+      { x: 640, y: 30, base: Math.PI / 2, sweep: 0.9 },
+    ],
+    player: { x: 80, y: 660 },
+    exit: { x: 1256, y: 100, w: 24, h: 64 },
+  },
+  {
+    name: 'Floor 3 — The Vault',
+    brief: 'The last two files sit inside the vault, behind a guard of their own and two cameras. Take them, stay out of the light, and slip out the bottom door.',
+    par: 150,
+    walls: [
+      { x: 0, y: 0, w: 1280, h: 24 },
+      { x: 0, y: 696, w: 1150, h: 24 },
+      { x: 1214, y: 696, w: 66, h: 24 },
+      { x: 0, y: 0, w: 24, h: 720 },
+      { x: 1256, y: 0, w: 24, h: 720 },
+      { x: 900, y: 24, w: 24, h: 116 },
+      { x: 900, y: 200, w: 24, h: 44 },
+      { x: 900, y: 244, w: 356, h: 24 },
+    ],
+    cover: [
+      { x: 280, y: 110, w: 44, h: 280, kind: 'shelf' },
+      { x: 560, y: 110, w: 44, h: 280, kind: 'shelf' },
+      { x: 280, y: 470, w: 44, h: 150, kind: 'shelf' },
+      { x: 560, y: 470, w: 44, h: 150, kind: 'shelf' },
+      { x: 760, y: 140, w: 56, h: 56, kind: 'crate' },
+      { x: 760, y: 520, w: 56, h: 56, kind: 'crate' },
+      { x: 120, y: 300, w: 54, h: 54, kind: 'crate' },
+    ],
+    plants: [
+      { x: 180, y: 620, r: 24 },
+      { x: 860, y: 340, r: 24 },
+      { x: 1120, y: 620, r: 24 },
+    ],
+    lamps: [
+      { x: 420, y: 300, r: 140 },
+      { x: 760, y: 360, r: 130 },
+      { x: 1080, y: 120, r: 130 },
+    ],
+    files: [
+      { x: 1010, y: 100 },
+      { x: 1150, y: 180 },
+      { x: 420, y: 620 },
+    ],
+    guards: [
+      { waypoints: [[150, 430], [520, 430]] },
+      { waypoints: [[220, 80], [220, 640]] },
+      { waypoints: [[700, 120], [700, 600]] },
+      { waypoints: [[960, 90], [1180, 90]] },
+    ],
+    cameras: [
+      { x: 640, y: 30, base: Math.PI / 2, sweep: 0.9 },
+      { x: 1250, y: 480, base: Math.PI, sweep: 0.8 },
+    ],
+    player: { x: 80, y: 80 },
+    exit: { x: 1150, y: 696, w: 64, h: 24 },
+  },
+];
